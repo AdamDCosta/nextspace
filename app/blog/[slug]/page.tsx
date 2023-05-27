@@ -10,7 +10,7 @@ interface Props {
   params: { slug: string }
 }
 
-export async function getStaticParams() {
+async function getStaticParams() {
   const posts: Post[] = await fetch("http://localhost:3000/api/content", { cache: 'default'}).then((resp) => resp.json());
 
   return posts.map((p) => ({
